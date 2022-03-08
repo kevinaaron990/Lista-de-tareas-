@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="lista">
+        <div class="datos">
+            <div class="datoLeft">
+                <div id="datoNumero"></div>
+                <div>
+                    <div id="datoMes"></div>
+                    <div id="datoAño"></div>
+                </div>
+            </div>
+            <div id="datoTexto"></div>
+        </div>
+        <form onsubmit="agregarTarea(evento)"><!--evento onsumbit se activa cuando el formulario es enviado  en este caso cuando se envie una nueva tarea mediante con un boton type sumbit-->
+            <input type="text" name="tarea" autocomplete="off" placeholder="Nueva Tarea">
+            <!--type submit porque se va a ejecutar el evento del form cuando apretemos este boton,boton para enviar las tareas-->
+            <button type="submit" class="agregarTareas">+</button>
+            <!--boton con evento click esto va a permitir realizar una funcion al hacer click en este caso ordenar las tareas-->
+            <button type="button" class="ordenarTareas" onclick="ordenarTareas()">Ordenar</button>
+        
+        </form>
+        <div id="tareasContenedor"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
