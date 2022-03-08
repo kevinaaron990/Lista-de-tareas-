@@ -22,12 +22,12 @@
             </div>
             <div id="datoTexto"></div>
         </div>
-        <form onsubmit="agregarTarea(evento)"><!--evento onsumbit se activa cuando el formulario es enviado  en este caso cuando se envie una nueva tarea mediante con un boton type sumbit-->
-            <input type="text" name="tarea" autocomplete="off" placeholder="Nueva Tarea">
+        <form class="formulario" onsubmit="agregarTarea(event)"><!--evento onsumbit se activa cuando el formulario es enviado  en este caso cuando se envie una nueva tarea mediante con un boton type sumbit-->
+            <input type="text" name="tarea" autocomplete="off" placeholder="Nueva Tarea" class="modificarEstilo">
             <!--type submit porque se va a ejecutar el evento del form cuando apretemos este boton,boton para enviar las tareas-->
-            <button type="submit" class="agregarTareas">+</button>
+            <button type="submit" class="agregarTareas modificarEstilo">+</button>
             <!--boton con evento click esto va a permitir realizar una funcion al hacer click en este caso ordenar las tareas-->
-            <button type="button" class="ordenarTareas" onclick="ordenarTareas()">Ordenar</button>
+            <button type="button" class="ordenarTareas modificarEstilo" onclick="ordenarTareas()">Ordenar</button>
         
         </form>
         <div id="tareasContenedor"></div>

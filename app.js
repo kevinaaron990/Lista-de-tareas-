@@ -15,28 +15,28 @@ const establecerFecha = () =>{
 
     $datoNumero.textContent = dato.toLocaleString('es', {day:'numeric'});//numeric 
     $datoMes.textContent = dato.toLocaleString('es', {month: 'long'});//long todo el texto
-    $datoTexto.textContent = dato.toLocaleString('es',{weekday:'short'});//short abreviado
+    $datoTexto.textContent = dato.toLocaleString('es',{weekday:'long'});//short abreviado
     $datoAño.textContent = dato.toLocaleString('es',{year:"numeric"});
 };
 
 //funcion agregarTarea del evento onsumbit que se va a enviar cuando el usuario envie una nueva tarea 
-const agregarTarea = evento =>{
-    evento.preventDefault();//Cancela el evento si este es cancelable, sin detener el resto del funcionamiento del evento
+const agregarTarea = event => {
+    event.preventDefault();//Cancela el evento si este es cancelable, sin detener el resto del funcionamiento del evento
     //creamos y agregamos la tarea
     //tomamos el valor del input
-    const {value} = evento.target.tarea;//accedemos al valor mediante el target y el name del input
+    const { value } = event.target.tarea;//accedemos al valor mediante el target y el name del input
     if(!value) return;//si no hay value osea si el usuario no agrego nada evitamos que se agreguen tareas vacias osea sin valor,el return hace que se corte la ejecucion de la funcion
     const tarea = document.createElement('div');//creamos un elemento div 
     tarea.classList.add('tarea','modificarEstilo');// a mi div le estoy dando dos clases
     tarea.addEventListener('click',estadoDeTarea);//le agrego un evento click con una funcion 
     tarea.textContent = value;//agregamos dentro el texto que ingreso el usuario en value osea en el input
     $tareasContenedor.prepend(tarea);//agremaos el elemento creado a nuestro contenedor de tareas con prepend esto hace que agregue al principio de la lista, es decir se antepone cada elemento creado
-    evento.target.reset();//reseteanos el input cada ves que se ingresa una tarea 
+    event.target.reset();//reseteanos el input cada ves que se ingresa una tarea 
 };
 
 //funcion cambiar estado de las tareas una vez haciendo clixk a la tarea 
-const estadoDeTarea = evento =>{
-    evento.target.classList.toggle('tareaHecha');/*accdemos a la clase de mi elemento div y con toggle preguntamos si no tiene la clase tareaHecha
+const estadoDeTarea = e =>{
+    e.target.classList.toggle('tareaHecha');/*accdemos a la clase de mi elemento div y con toggle preguntamos si no tiene la clase tareaHecha
                                                 se la agregamos y si la tiene se la eliminamos */
 };
 
